@@ -1,12 +1,13 @@
 import requests
+from config import OPENSUB_API_KEY
 
 HEADERS = {
-    "User-Agent": "Cinebot/V1",
-    "Api-Key": "haha-you-think-i-am-stupid?"
+    "User-Agent": "Cinebot v1.0",
+    "Api-Key": OPENSUB_API_KEY
 }
 
-def fetch_subtitles(movie_id: str):
-    search_url = f"https://api.opensubtitles.com/api/v1/subtitles?imdb_id={movie_id}"
+def fetch_subtitles(movie_id: int):
+    search_url = f"https://api.opensubtitles.com/api/v1/subtitles?tmdb_id={movie_id}"
     response = requests.get(search_url, headers=HEADERS)
     response = response.json()
     #response.data is a list of dictionaries, we need to get the files.file_id where attributes.language is "es"
@@ -23,4 +24,4 @@ def fetch_subtitles(movie_id: str):
     return response["link"]
 
 if __name__=="__main__":
-    print(fetch_subtitles("tt0468569"))
+    print(fetch_subtitles(550))
