@@ -18,7 +18,7 @@ if __name__=="__main__":
             print("Fetching Subtitles....")
             subtitle_url = fetch_subtitles(movie["id"])
             print(f"Subtitle url: {subtitle_url}")
-            time.sleep(10) 
+            time.sleep(15) 
             print("Downloading Subtitles....")
             subtitle_file = donwload_subtitle(subtitle_url)
             time.sleep(10) 

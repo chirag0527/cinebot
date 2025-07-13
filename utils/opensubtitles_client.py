@@ -2,8 +2,10 @@ import requests
 from config import OPENSUB_API_KEY
 
 HEADERS = {
-    "User-Agent": "Cinebot v1.0",
-    "Api-Key": OPENSUB_API_KEY
+    "User-Agent": "Cinebot/V1",
+    "Api-Key": OPENSUB_API_KEY,
+    "Connection": "keep-alive",
+    "Accept-Encoding": "*",
 }
 
 def fetch_subtitles(movie_id: int):

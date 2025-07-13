@@ -6,7 +6,9 @@ from config import OPENSUB_API_KEY
 def donwload_subtitle(url: str):
     HEADERS = {
     "User-Agent": "Cinebot v1.0",
-    "Api-Key": OPENSUB_API_KEY
+    "Api-Key": OPENSUB_API_KEY,
+    "Connection": "keep-alive",
+    "Accept-Encoding": "*",
 }
     response = requests.get(url, headers=HEADERS)
     with tempfile.NamedTemporaryFile(delete=False, suffix=".srt") as temp_file:
